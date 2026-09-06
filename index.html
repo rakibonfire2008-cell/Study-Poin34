@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>StudyMate — Student Dashboard</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+      <div class="brand">
+        <div class="brand-mark">S</div>
+        <span>StudyMate</span>
+      </div>
+
+      <nav>
+
+        <button class="nav-item active" data-page="dashboard">
+          ⌂
+          <span>Dashboard</span>
+        </button>
+
+        <button class="nav-item" data-page="subjects">
+          ▦
+          <span>Subjects</span>
+        </button>
+
+        <button class="nav-item" data-page="tasks">
+          ✓
+          <span>Tasks</span>
+        </button>
+
+        <button class="nav-item" data-page="notes">
+          ✎
+          <span>Notes</span>
+        </button>
+
+      </nav>
+
+      <div class="sidebar-bottom">
+
+        <div class="mini-card">
+          <span>🔥</span>
+
+          <div>
+            <b>7 day streak</b>
+            <small>Keep it going!</small>
+          </div>
+        </div>
+
+        <button class="nav-item" id="themeBtn">
+          ◐
+          <span>Toggle theme</span>
+        </button>
+
+      </div>
+
+    </aside>
+
+
+    <!-- Main Content -->
+    <main class="main">
+
+      <!-- Top Bar -->
+      <header class="topbar">
+
+        <div>
+          <p class="eyebrow">
+            MONDAY, SEPTEMBER 7
+          </p>
+
+          <h1 id="pageTitle">
+            Good morning, Alex 👋
+          </h1>
+        </div>
+
+        <div class="top-actions">
+
+          <button class="icon-btn" title="Notifications">
+            ♢
+          </button>
+
+          <div class="avatar">
+            A
+          </div>
+
+        </div>
+
+      </header>
+
+
+      <!-- ================= DASHBOARD ================= -->
+
+      <section id="dashboard" class="page active-page">
+
+        <!-- Hero -->
+        <div class="hero">
+
+          <div>
+
+            <span class="pill">
+              ✨ YOUR DAILY PLAN
+            </span>
+
+            <h2>
+              Make today<br>
+              <span>count.</span>
+            </h2>
+
+            <p>
+              Small focused sessions add up to big progress.
+            </p>
+
+            <button
+              class="primary"
+              onclick="document.querySelector('[data-page=tasks]').click()"
+            >
+              View my tasks →
+            </button>
+
+          </div>
+
+
+          <div class="hero-orb">
+
+            <div class="orb-inner">
+              82%
+            </div>
+
+            <small>
+              weekly goal
+            </small>
+
+          </div>
+
+        </div>
+
+
+        <!-- Statistics -->
+        <div class="stats">
+
+          <div class="stat">
+
+            <div class="stat-icon purple">
+              ◷
+            </div>
+
+            <div>
+              <b>2h 35m</b>
+              <span>Study time</span>
+            </div>
+
+            <strong>
+              +18%
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <div class="stat-icon green">
+              ✓
+            </div>
+
+            <div>
+              <b id="doneCount">
+                8
+              </b>
+
+              <span>
+                Tasks done
+              </span>
+            </div>
+
+            <strong>
+              +12%
+            </strong>
+
+          </div>
+
+
+          <div class="stat">
+
+            <div class="stat-icon orange">
+              ◉
+            </div>
+
+            <div>
+              <b>7 days</b>
+              <span>Current streak</span>
+            </div>
+
+            <strong>
+              Best 14
+            </strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- Dashboard Grid -->
+        <div class="grid">
+
+          <!-- Today's Tasks -->
+          <section class="card">
+
+            <div class="card-head">
+
+              <div>
+
+                <h3>
+                  Today’s tasks
+                </h3>
+
+                <p>
+                  Stay on top of your priorities.
+                </p>
+
+              </div>
+
+              <button
+                class="text-btn"
+                onclick="document.querySelector('[data-page=tasks]').click()"
+              >
+                View all
+              </button>
+
+            </div>
+
+            <div
+              id="taskList"
+              class="task-list"
+            ></div>
+
+          </section>
+
+
+          <!-- Focus Timer -->
+          <section class="card">
+
+            <div class="card-head">
+
+              <div>
+
+                <h3>
+                  Focus timer
+                </h3>
+
+                <p>
+                  One session at a time.
+                </p>
+
+              </div>
+
+              <span class="live">
+                ● FOCUS
+              </span>
+
+            </div>
+
+
+            <div class="timer">
+
+              <div class="timer-ring">
+
+                <span id="timer">
+                  25:00
+                </span>
+
+                <small>
+                  FOCUS
+                </small>
+
+              </div>
+
+
+              <div class="timer-controls">
+
+                <button
+                  class="primary"
+                  id="startBtn"
+                >
+                  Start session
+                </button>
+
+                <button
+                  class="secondary"
+                  id="resetBtn"
+                >
+                  Reset
+                </button>
+
+              </div>
+
+            </div>
+
+          </section>
+
+        </div>
+
+
+        <!-- Weekly Progress -->
+        <section class="card">
+
+          <div class="card-head">
+
+            <div>
+
+              <h3>
+                Weekly progress
+              </h3>
+
+              <p>
+                Your study activity over the last 7 days.
+              </p>
+
+            </div>
+
+            <span class="week-total">
+              12h 40m
+            </span>
+
+          </div>
+
+
+          <div
+            class="chart"
+            id="chart"
+          ></div>
+
+        </section>
+
+      </section>
+
+
+      <!-- ================= SUBJECTS ================= -->
+
+      <section
+        id="subjects"
+        class="page"
+      >
+
+        <div class="section-title">
+
+          <div>
+
+            <h2>
+              Subjects
+            </h2>
+
+            <p>
+              Track your progress by subject.
+            </p>
+
+          </div>
+
+          <button
+            class="primary"
+            id="addSubject"
+          >
+            + Add subject
+          </button>
+
+        </div>
+
+
+        <div
+          class="subject-grid"
+          id="subjectGrid"
+        ></div>
+
+      </section>
+
+
+      <!-- ================= TASKS ================= -->
+
+      <section
+        id="tasks"
+        class="page"
+      >
+
+        <div class="section-title">
+
+          <div>
+
+            <h2>
+              Tasks
+            </h2>
+
+            <p>
+              Plan your work and get things done.
+            </p>
+
+          </div>
+
+          <button
+            class="primary"
+            id="addTask"
+          >
+            + Add task
+          </button>
+
+        </div>
+
+
+        <div class="card">
+
+          <div
+            id="allTasks"
+            class="task-list"
+          ></div>
+
+        </div>
+
+      </section>
+
+
+      <!-- ================= NOTES ================= -->
+
+      <section
+        id="notes"
+        class="page"
+      >
+
+        <div class="section-title">
+
+          <div>
+
+            <h2>
+              Notes
+            </h2>
+
+            <p>
+              Keep your important ideas in one place.
+            </p>
+
+          </div>
+
+          <button
+            class="primary"
+            id="addNote"
+          >
+            + New note
+          </button>
+
+        </div>
+
+
+        <div
+          class="notes-grid"
+          id="notesGrid"
+        ></div>
+
+      </section>
+
+    </main>
+
+  </div>
+
+
+  <!-- Toast Notification -->
+  <div id="toast"></div>
+
+
+  <!-- JavaScript -->
+  <script src="script.js"></script>
+
+</body>
+    </html>
+
+    
