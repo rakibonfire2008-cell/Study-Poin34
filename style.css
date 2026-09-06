@@ -1,0 +1,349 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #151725;
+  --muted: #7d8191;
+  --line: #e9eaf0;
+
+  --primary: #6c4df6;
+  --primary-light: #eeeafd;
+
+  --shadow: 0 14px 40px rgba(30, 24, 70, 0.07);
+}
+
+body.dark {
+  --bg: #101116;
+  --surface: #181920;
+  --text: #f4f4f7;
+  --muted: #999cab;
+  --line: #292b35;
+
+  --shadow: 0 14px 40px rgba(0, 0, 0, 0.2);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, sans-serif;
+  transition: 0.25s;
+}
+
+
+/* ================= APP ================= */
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+
+/* ================= SIDEBAR ================= */
+
+.sidebar {
+  width: 245px;
+  background: var(--surface);
+  border-right: 1px solid var(--line);
+
+  padding: 28px 18px;
+
+  display: flex;
+  flex-direction: column;
+
+  position: fixed;
+  inset: 0 auto 0 0;
+}
+
+
+/* Logo */
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+
+  font-weight: 800;
+  font-size: 19px;
+
+  margin: 0 10px 42px;
+}
+
+.brand-mark {
+  width: 34px;
+  height: 34px;
+
+  border-radius: 11px;
+
+  background: linear-gradient(
+    135deg,
+    var(--primary),
+    #a98cff
+  );
+
+  color: white;
+
+  display: grid;
+  place-items: center;
+
+  font-weight: 800;
+
+  box-shadow: 0 8px 18px #765bf044;
+}
+
+
+/* Navigation */
+
+nav {
+  display: grid;
+  gap: 7px;
+}
+
+.nav-item {
+  border: 0;
+  background: transparent;
+
+  color: var(--muted);
+
+  padding: 12px 13px;
+
+  border-radius: 11px;
+
+  text-align: left;
+
+  font: 600 13px Inter;
+
+  cursor: pointer;
+
+  display: flex;
+  align-items: center;
+
+  gap: 13px;
+
+  transition: 0.2s;
+}
+
+.nav-item.active,
+.nav-item:hover {
+  background: var(--primary-light);
+  color: var(--primary);
+}
+
+
+/* Bottom */
+
+.sidebar-bottom {
+  margin-top: auto;
+}
+
+.mini-card {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+
+  background: var(--bg);
+
+  padding: 12px;
+
+  border-radius: 13px;
+
+  margin: 0 4px 12px;
+}
+
+.mini-card span {
+  font-size: 20px;
+}
+
+.mini-card b,
+.mini-card small {
+  display: block;
+}
+
+.mini-card b {
+  font-size: 11px;
+}
+
+.mini-card small {
+  font-size: 9px;
+  color: var(--muted);
+
+  margin-top: 3px;
+}
+
+
+/* ================= MAIN ================= */
+
+.main {
+  margin-left: 245px;
+
+  width: calc(100% - 245px);
+
+  max-width: 1400px;
+
+  padding: 34px 5%;
+
+  margin-right: auto;
+}
+
+
+/* ================= TOPBAR ================= */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-bottom: 28px;
+}
+
+.eyebrow {
+  font-size: 10px;
+
+  font-weight: 800;
+
+  letter-spacing: 1.7px;
+
+  color: var(--muted);
+
+  margin: 0 0 8px;
+}
+
+.topbar h1 {
+  font-size: 25px;
+
+  margin: 0;
+
+  letter-spacing: -0.7px;
+}
+
+.top-actions {
+  display: flex;
+
+  gap: 10px;
+
+  align-items: center;
+}
+
+.icon-btn,
+.avatar {
+  border: 1px solid var(--line);
+
+  background: var(--surface);
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+
+  display: grid;
+  place-items: center;
+
+  color: var(--muted);
+
+  cursor: pointer;
+}
+
+.avatar {
+  background: var(--text);
+  color: var(--surface);
+
+  border: 0;
+
+  font-weight: 700;
+  font-size: 13px;
+}
+
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 255px;
+
+  border-radius: 24px;
+
+  background:
+    linear-gradient(
+      120deg,
+      #22184b,
+      #5d45c8 58%,
+      #8d72ff
+    );
+
+  color: white;
+
+  padding: 36px 42px;
+
+  display: flex;
+
+  justify-content: space-between;
+  align-items: center;
+
+  overflow: hidden;
+
+  position: relative;
+
+  box-shadow: var(--shadow);
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  border-radius: 50%;
+
+  right: 90px;
+  top: -190px;
+
+  background: #ffffff14;
+}
+
+.pill {
+  font-size: 9px;
+
+  letter-spacing: 1.4px;
+
+  font-weight: 800;
+
+  background: #ffffff18;
+
+  padding: 8px 11px;
+
+  border-radius: 30px;
+}
+
+.hero h2 {
+  font-size: 39px;
+
+  line-height: 1.05;
+
+  margin: 18px 0 10px;
+
+  letter-spacing: -1.8px;
+}
+
+.hero h2 span {
+  color: #cfc5ff;
+}
+
+.hero p {
+  color: #ddd8f4;
+
+  font-size: 12px;
+
+  margin-bottom: 22px;
+}
+
+
+/* Hero Button */
+
+.primary {
+  border: 0;
+
+  border-radius: 10
